@@ -1,0 +1,61 @@
+<app-sidebar></app-sidebar>
+<section class="dashboard">
+
+  <div class="dash-content">
+    <div class="overview" style="margin-left: 10px;">
+      <div class="title">
+        <i class="uil uil-building"></i>
+        <span class="text">Control de activos</span>
+      </div>
+      <div class="mb-3">
+        <span>
+          <h5 style="font-weight: 400 !important;">Control de activos distribuidos en Ecuahealth</h5>
+        </span>
+      </div>
+    </div>
+
+    <div class="card-body" style="margin-left: 10px;">
+      <div class="row">
+        <div class="col-2">
+          <label class="form label">Persona Asignada</label>
+          <div class="form-group">
+            <input readonly type="text" class="form-control mt-2" id="persona"
+              #persona="ngModel" name="persona" [(ngModel)]="control.persona" required>
+          </div>
+        </div>
+        <div class="col-3">
+          <label class="form label">Departamento al que pertenece</label>
+          <div class="form-group">
+            <input readonly type="text" class="form-control mt-2" id="nombre"
+              #nombre="ngModel" name="nombre" [(ngModel)]="departamento.nombre" required>
+          </div>
+        </div>
+        <div class="col-2">
+          <label class="form label">Activo Asignado</label>
+          <div class="form-group">
+            <input readonly type="text" class="form-control mt-2" id="activoT" #activoT="ngModel"
+              name="activoT" [(ngModel)]="activo.activoT" required>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-2">
+          <label class="form label">Fecha de Asignación</label>
+          <div class="form-group">
+            <input readonly type="text" class="form-control mt-2" id="fecha" #fecha="ngModel" name="fecha"
+              [(ngModel)]="control.fecha" required>
+          </div>
+        </div>
+        <div class="col-3">
+          <label class="form label">Tiempo de Depreciación</label>
+          <div class="form-group">
+            <input readonly type="text" class="form-control mt-2" id="tiempoDepreciacion" #tiempoDepreciacion="ngModel"
+              name="tiempoDepreciacion" [(ngModel)]="control.tiempoDepreciacion" required>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-success mt-4" [routerLink]="['/control']">Regresar</button>
+    </div>
+
+  </div>
+</section>

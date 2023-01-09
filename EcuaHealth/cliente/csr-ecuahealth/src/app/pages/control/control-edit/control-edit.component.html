@@ -1,0 +1,68 @@
+<app-sidebar></app-sidebar>
+<section class="dashboard">
+
+  <div class="dash-content">
+    <div class="overview" style="margin-left: 10px;">
+      <div class="title">
+        <i class="uil uil-building"></i>
+        <span class="text">Control de activos</span>
+      </div>
+      <div class="mb-3">
+        <span>
+          <h5 style="font-weight: 400 !important;">Control de activos distribuidos en Ecuahealth</h5>
+        </span>
+      </div>
+    </div>
+    <div class="container mt-4">
+      <div class="row">
+        <form #editarForm="ngForm" (ngSubmit)="editar_control(editarForm)">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="form-group mb-3">
+                  <label for="nombre" class="form-label">Nombre de la persona asignada</label>
+                  <input type="text" class="form-control" placeholder="Ingrese un nombre de la persona asignada"
+                    name="persona" #persona="ngModel" [(ngModel)]="control.persona" required>
+                </div>
+                <div class="form-group">
+                  <label for="nombre" class="form-label">Nombre del deparatamento al que pertenece</label>
+                  <div class="form-group mb-3">
+                    <select class="form-control form-select" #idDepartamento="ngModel" name="idDepartamento" [(ngModel)]="control.idDepartamento" required>
+                      <option value="" disabled>SELECCIONAR</option>
+                      <option value="{{item._id}}" *ngFor="let item of departamento">{{item.nombre}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="nombre" class="form-label">Nombre del activo asignado</label>
+                  <div class="form-group mb-3">
+                    <select class="form-control form-select" #idActivo="ngModel" name="idActivo" [(ngModel)]="control.idActivo" required>
+                      <option value="" disabled>SELECCIONAR</option>
+                      <option value="{{item._id}}" *ngFor="let item of activo">{{item.activoT}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="fecha" class="form-label">Fecha de asignación</label>
+                  <input type="text" class="form-control"
+                    placeholder="Ingrese la fecha de asignación (dd/MM/yyyy)" name="fecha" #fecha="ngModel"
+                    [(ngModel)]="control.fecha" required>
+                </div>
+                <div class="form-group">
+                  <label for="number" class="form-label">Tiempo de depreciación</label>
+                  <input type="number" class="form-control" placeholder="Ingrese el tiempo de depreciación"
+                    name="tiempoDepreciacion" #tiempoDepreciacion="ngModel"
+                    [(ngModel)]="control.tiempoDepreciacion" required>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary mt-3" [routerLink]="['/control']" style="margin-right: 10px;">Regresar</button>
+                <button type="submit" class="btn btn-primary mt-3">Actualizar</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
